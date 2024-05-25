@@ -7,7 +7,7 @@ import {Contact} from "../../pages/Contact/Contact";
 export class MainContent extends Component {
     render() {
         return (
-            <div className="md:px12 max-2xl mx-auto pt-28 pb-28 " >
+            <div className="md:px12 max-2xl mx-auto " >
                 {/* <h1 className="text-tertiary text-center">This is Main content</h1> */}
 
                <Routes>
