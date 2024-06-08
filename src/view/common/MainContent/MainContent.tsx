@@ -4,6 +4,7 @@ import { About } from "../../pages/About/About";
 import { Home } from "../../pages/Home/Home";
 import {Contact} from "../../pages/Contact/Contact";
 import {ShoppingCart} from "../../pages/ShoppingCart/ShoppingCart";
+import {ModifyCart} from "../ModifyCart/ModifyCart";
 
 export class MainContent extends Component {
     render() {
@@ -15,7 +16,8 @@ export class MainContent extends Component {
                    <Route path="/" Component={Home}></Route>
                    <Route path="/about" Component={About}></Route>
                    <Route path="/contact" Component={Contact}></Route>
-                   <Route path="/shopping-cart" element={<ShoppingCart itemsList={[]}></ShoppingCart>}></Route>
+                   <Route path="/shopping-cart" element={<ShoppingCart itemsList={
+                       ModifyCart.itemsList}></ShoppingCart>}></Route>
 
                </Routes>
 
