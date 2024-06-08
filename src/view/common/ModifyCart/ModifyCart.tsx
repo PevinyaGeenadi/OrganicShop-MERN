@@ -6,6 +6,7 @@ interface ModifyCartState{
     itemCount: number
 }
 export class ModifyCart extends Component <ModifyCartProps,ModifyCartState>{
+    public static itemsList: CartItem[] = [];
     constructor(props:ModifyCartProps) {
         super(props);
         this.state = {
@@ -22,9 +23,15 @@ export class ModifyCart extends Component <ModifyCartProps,ModifyCartState>{
         }
         const decreaseItemCount =() : void =>{
             //alert("Remove")
-            this.setState({
-                itemCount: --itemCount
-            })
+
+            if(itemCount >1){
+                this.setState({
+                    itemCount: --itemCount
+                })
+            } else {
+                alert("Item count cannot be less than 1")
+            }
+
         }
         return (
             <><div className="w-full mt-1 p-[2.4px] text-[12px] text-center bg-gray-500">
