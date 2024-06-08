@@ -4,7 +4,9 @@ import spinash from "../../../images/products/spinach.png";
 interface ProductProps {
     data: any;
 }
-
+interface ProductState{
+    isActive : boolean
+}
 export class Product extends Component<ProductProps> {
     render() {
         const { data } = this.props;
