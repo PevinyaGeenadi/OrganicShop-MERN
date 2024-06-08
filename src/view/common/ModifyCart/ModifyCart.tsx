@@ -1,6 +1,7 @@
 import {Component} from "react";
+import {CartItem} from "../../../model/CartItem";
 interface ModifyCartProps{
-
+    data: CartItem;
 }
 interface ModifyCartState{
     itemCount: number
