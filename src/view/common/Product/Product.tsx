@@ -23,10 +23,14 @@ export class Product extends Component<ProductProps> {
                     </div>
                 </div>
                 <div className="flex justify-center mt-2">
-                    <button className="w-full p-[4px] bg-secondary text-[10px] border-gray-500 border-[0.5px]">Add to Cart</button>
+                    <button className="w-full p-[4px] bg-secondary text-[10px] border-gray-500 border-[0.5px]"
+                    onClick={this.addToCartOnClick}>Add to Cart</button>
                 </div>
             </div>
         );
     }
+    private addToCartOnClick = () : void =>{
+        alert('Clicked');
+    }
 }
-//
+
