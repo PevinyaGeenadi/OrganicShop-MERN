@@ -1,5 +1,6 @@
 import { Component } from "react";
 import spinash from "../../../images/products/spinach.png";
+import {ModifyCart} from "../ModifyCart/ModifyCart";
 
 interface ProductProps {
     data: any;
@@ -33,19 +34,21 @@ export class Product extends Component<ProductProps,ProductState> {
                 <div className="flex justify-center mt-2">
                     {
                         this.state.isActive ?
-                        <div className="w-full mt-1 p-[2.4px] text-[8px] text-center bg-gray-500">Modify Cart</div>
-                        <button> - </button>
-                        <small>1</small>
-                        <button> + </button>
-                        //:
-                   // <button className="w-full p-[4px] bg-secondary text-[10px] border-gray-500 border-[0.5px]"
-                   // onClick={this.addToCartOnClick}>Add to Cart</button>
-                    }
+                            <ModifyCart></ModifyCart>
+                         :
+                            <button
+                                className="w-full p-[4px] bg-secondary text-[10px] border-gray-500 border-[0.5px]"
+                                onClick={this.addToCartOnClick}
+                            >
+                                Add to Cart
+                            </button>
 
+                    }
                 </div>
+
             </div>
         );
-    }
+    } //
     private addToCartOnClick = () => {
         // eslint-disable-next-line react/no-direct-mutation-state
         this.setState({
