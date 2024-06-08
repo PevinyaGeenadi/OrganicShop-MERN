@@ -29,3 +29,4 @@ export class Product extends Component<ProductProps> {
         );
     }
 }
+//
