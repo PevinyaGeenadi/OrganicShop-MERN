@@ -15,6 +15,7 @@ export class NavBar extends Component {
                        <li className="inline-block mr-5 text-[#e6f0e6] cursor-pointer hover:text-green-500"><Link to="/">Home</Link> </li>
                        <li className="inline-block mr-5 text-[#e6f0e6] cursor-pointer hover:text-green-500"><Link to="/about">About</Link></li>
                        <li className="inline-block mr-5 text-[#e6f0e6] cursor-pointer hover:text-green-500"><Link to="/contact">Contact</Link></li>
+                       <li className="inline-block mr-5 text-[#e6f0e6] cursor-pointer hover:text-green-500"><Link to="/shopping-cart">My-Cart</Link></li>
                    </ul>
                     <button className="text-[14px] text-[#e6f0e6] bg-green-400 pl-3 pr-3 rounded hover:text-tertiary">
                         <Link to="/login">Sign In</Link>

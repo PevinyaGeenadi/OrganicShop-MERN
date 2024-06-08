@@ -34,7 +34,8 @@ export class Product extends Component<ProductProps,ProductState> {
                 <div className="flex justify-center mt-2">
                     {
                         this.state.isActive ?
-                            <ModifyCart></ModifyCart>
+                            <ModifyCart data={{product : data,
+                                               isAdded : this.state.isActive}}></ModifyCart>
                          :
                             <button
                                 className="w-full p-[4px] bg-secondary text-[10px] border-gray-500 border-[0.5px]"
