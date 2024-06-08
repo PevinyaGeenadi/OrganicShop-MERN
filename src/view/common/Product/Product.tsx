@@ -7,7 +7,13 @@ interface ProductProps {
 interface ProductState{
     isActive : boolean
 }
-export class Product extends Component<ProductProps> {
+export class Product extends Component<ProductProps,ProductState> {
+    constructor(props:ProductProps) {
+        super(props);
+        this.state ={
+            isActive:false
+        }
+    }
     render() {
         const { data } = this.props;
         const image = require('../../../images/products/' + data.image);
@@ -25,14 +31,27 @@ export class Product extends Component<ProductProps> {
                     </div>
                 </div>
                 <div className="flex justify-center mt-2">
-                    <button className="w-full p-[4px] bg-secondary text-[10px] border-gray-500 border-[0.5px]"
-                    onClick={this.addToCartOnClick}>Add to Cart</button>
+                    {
+                        this.state.isActive ?
+                        <div className="w-full mt-1 p-[2.4px] text-[8px] text-center bg-gray-500">Modify Cart</div>
+                        <button> - </button>
+                        <small>1</small>
+                        <button> + </button>
+                        //:
+                   // <button className="w-full p-[4px] bg-secondary text-[10px] border-gray-500 border-[0.5px]"
+                   // onClick={this.addToCartOnClick}>Add to Cart</button>
+                    }
+
                 </div>
             </div>
         );
     }
-    private addToCartOnClick = () : void =>{
-        alert('Clicked');
+    private addToCartOnClick = () => {
+        // eslint-disable-next-line react/no-direct-mutation-state
+        this.setState({
+            isActive: true,
+        })
+
     }
 }
 
