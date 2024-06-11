@@ -3,9 +3,9 @@ import React, { Component } from "react";
 export class Login extends Component {
     render() {
         return (
-            <div className="flex h-screen bg-[#444544] items-center justify-center">
-                <div className="w-1/3 p-8 border-gray-500 border-[0.5px] bg-white rounded-lg shadow-lg">
-                    <h2 className="pb-4 text-4xl text-green-400 underline decoration-2 text-center">
+            <div className="flex justify-center items-center min-h-screen ">
+                <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
+                    <h2 className="pb-4 text-4xl text-green-500 underline text-center">
                         Sign In
                     </h2>
                     <form className="space-y-6">
@@ -14,8 +14,9 @@ export class Login extends Component {
                                 Email:
                             </label>
                             <input
-                                className="w-full border-[1px] border-green-200 p-2 rounded-md"
+                                className="w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
                                 type="email"
+                                placeholder="Enter your email"
                             />
                         </div>
                         <div>
@@ -23,13 +24,14 @@ export class Login extends Component {
                                 Password:
                             </label>
                             <input
-                                className="w-full border-[1px] border-green-200 p-2 rounded-md"
+                                className="w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
                                 type="password"
+                                placeholder="Enter your password"
                             />
                         </div>
                         <div>
                             <button
-                                className="w-full py-3 bg-green-400 text-white text-lg rounded-md hover:bg-green-500 transition duration-300"
+                                className="w-full py-3 bg-green-500 text-white text-lg rounded-md hover:bg-green-600 transition duration-300"
                             >
                                 Sign In
                             </button>
