@@ -1,13 +1,15 @@
 import { Component } from "react";
 import axios from "axios";
-
+interface ContactProps {
+    data: any
+}
 interface ContactState {
     email: string;
     subject: string;
     message: string
 }
 
-export class Contact extends Component {
+export class Contact extends Component<ContactProps, ContactState> {
     private api: any;
 
     constructor(props: any) {
@@ -16,6 +18,11 @@ export class Contact extends Component {
             baseURL:
                 `http://localhost:4000`
         });
+        this.state = {
+            email: '',
+            subject: '',
+            message: ''
+        }
     }
 
     private onSendBtnClick
@@ -38,6 +45,29 @@ export class Contact extends Component {
                 'Error:', error);
         }
     }
+    private handleEmailChange
+        = (event: {target:
+            { value: string; }}) => {
+        this.setState({
+            email: event.target.value
+        });
+    }
+
+    private handleSubjectChange
+        = (event: {target:
+            { value: string; }}) => {
+        this.setState({
+            subject: event.target.value
+        });
+    }
+
+    private handleMessageChange
+        = (event: {target:
+            { value: string; }}) => {
+        this.setState({
+            message: event.target.value
+        });
+    }
     render() {
         return (
             <div className="flex justify-center items-center min-h-screen bg-gray-100">
@@ -57,16 +87,14 @@ export class Contact extends Component {
                             </label>
                             <input
                                 type="email"
-                                className="w-full mt-1 p-2 border-2 border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
+                                className="w-full mt-1 p-2 border-2 border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" onChange={this.handleEmailChange}
                             />
                         </div>
                         <div>
                             <label className="block text-gray-700 text-base lg:text-lg">
                                 Your Subject:
                             </label>
-                            <input
-                                type="text"
-                                className="w-full mt-1 p-2 border-2 border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
+                            <input type="text" className="w-full mt-1 p-2 border-2 border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" onChange={this.handleSubjectChange}
                             />
                         </div>
                         <div>
@@ -74,7 +102,7 @@ export class Contact extends Component {
                                 Your Message:
                             </label>
                             <textarea
-                                className="w-full mt-1 p-2 border-2 border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
+                                className="w-full mt-1 p-2 border-2 border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" onChange={this.handleMessageChange}
                             />
                         </div>
                         <div className="text-center">
