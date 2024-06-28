@@ -23,6 +23,17 @@ export class Contact extends Component<ContactProps, ContactState> {
             subject: '',
             message: ''
         }
+        this.handleEmailChange = this
+            .handleEmailChange
+            .bind(this);
+
+        this.handleSubjectChange = this
+            .handleSubjectChange
+            .bind(this);
+
+        this.handleMessageChange = this
+            .handleMessageChange
+            .bind(this);
     }
 
     private onSendBtnClick
@@ -30,9 +41,9 @@ export class Contact extends Component<ContactProps, ContactState> {
         try {
             this.api
                 .post('/contact/submit', {
-                    "email": "someone@gmail.com",
-                    "subject": "Contact Subject",
-                    "message": "Something went wrong"
+                    "email": this.state.email,
+                    "subject": this.state.subject,
+                    "message": this.state.message
                 }).then((res: {data: any}) => {
                 const response = res.data;
                 alert(response);
@@ -87,14 +98,14 @@ export class Contact extends Component<ContactProps, ContactState> {
                             </label>
                             <input
                                 type="email"
-                                className="w-full mt-1 p-2 border-2 border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" onChange={this.handleEmailChange}
+                                className="w-full mt-1 p-2 border-2 border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" value={this.state.email} onChange={this.handleEmailChange}
                             />
                         </div>
                         <div>
                             <label className="block text-gray-700 text-base lg:text-lg">
                                 Your Subject:
                             </label>
-                            <input type="text" className="w-full mt-1 p-2 border-2 border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" onChange={this.handleSubjectChange}
+                            <input type="text" className="w-full mt-1 p-2 border-2 border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" value={this.state.subject} onChange={this.handleSubjectChange}
                             />
                         </div>
                         <div>
@@ -102,7 +113,7 @@ export class Contact extends Component<ContactProps, ContactState> {
                                 Your Message:
                             </label>
                             <textarea
-                                className="w-full mt-1 p-2 border-2 border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" onChange={this.handleMessageChange}
+                                className="w-full mt-1 p-2 border-2 border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" value={this.state.message} onChange={this.handleMessageChange}
                             />
                         </div>
                         <div className="text-center">
