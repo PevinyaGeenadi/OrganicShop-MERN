@@ -56,27 +56,39 @@ export class Contact extends Component<ContactProps, ContactState> {
                 'Error:', error);
         }
     }
-    private handleEmailChange
-        = (event: {target:
-            { value: string; }}) => {
-        this.setState({
-            email: event.target.value
-        });
-    }
+    // private handleEmailChange
+    //     = (event: {target:
+    //         { value: string; }}) => {
+    //     this.setState({
+    //         email: event.target.value
+    //     });
+    // }
+    //
+    // private handleSubjectChange
+    //     = (event: {target:
+    //         { value: string; }}) => {
+    //     this.setState({
+    //         subject: event.target.value
+    //     });
+    // }
+    //
+    // private handleMessageChange
+    //     = (event: {target:
+    //         { value: string; }}) => {
+    //     this.setState({
+    //         message: event.target.value
+    //     });
+    // }
 
-    private handleSubjectChange
-        = (event: {target:
-            { value: string; }}) => {
+    private handleMessageInputOnChange
+        = (event: {
+        target: { value: any}}) => {
+        const target = event.target;
+        let name = target.name;
+        let value = target.value;
+        // @ts-ignore
         this.setState({
-            subject: event.target.value
-        });
-    }
-
-    private handleMessageChange
-        = (event: {target:
-            { value: string; }}) => {
-        this.setState({
-            message: event.target.value
+            [name]: value
         });
     }
     render() {
