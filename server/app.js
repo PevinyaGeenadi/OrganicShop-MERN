@@ -8,6 +8,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var productRouter = require('./routes/productRoutes');
+var contactRouter = require('./routes/ContactRoutes');
 
 var app = express();
 
@@ -28,7 +29,7 @@ app.use(cors());
 //middleware
 app.use('/', indexRouter); // http://localhost:4000
 app.use('/products', productRouter); // http://localhost:4000/products
-app.use('/contact', ); // http://localhost:4000/contact
+app.use('/contact', contactRouter); // http://localhost:4000/contact
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

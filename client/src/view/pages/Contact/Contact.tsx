@@ -1,6 +1,43 @@
 import { Component } from "react";
+import axios from "axios";
+
+interface ContactState {
+    email: string;
+    subject: string;
+    message: string
+}
 
 export class Contact extends Component {
+    private api: any;
+
+    constructor(props: any) {
+        super(props);
+        this.api = axios.create({
+            baseURL:
+                `http://localhost:4000`
+        });
+    }
+
+    private onSendBtnClick
+        = () => {
+        try {
+            this.api
+                .post('/contact/submit', {
+                    "email": "someone@gmail.com",
+                    "subject": "Contact Subject",
+                    "message": "Something went wrong"
+                }).then((res: {data: any}) => {
+                const response = res.data;
+                alert(response);
+            }).catch((error: any) => {
+                console.error('Axios Error:'
+                    , error);
+            });
+        } catch (error) {
+            console.error(
+                'Error:', error);
+        }
+    }
     render() {
         return (
             <div className="flex justify-center items-center min-h-screen bg-gray-100">
@@ -41,7 +78,7 @@ export class Contact extends Component {
                             />
                         </div>
                         <div className="text-center">
-                            <button className="mt-4 px-4 py-2 bg-green-500 text-white rounded-md text-base lg:text-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400">
+                            <button className="mt-4 px-4 py-2 bg-green-500 text-white rounded-md text-base lg:text-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400" onClick={this.onSendBtnClick}>
                                 Send Message
                             </button>
                         </div>
