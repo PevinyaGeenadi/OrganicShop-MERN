@@ -23,17 +23,17 @@ export class Contact extends Component<ContactProps, ContactState> {
             subject: '',
             message: ''
         }
-        this.handleEmailChange = this
-            .handleEmailChange
-            .bind(this);
-
-        this.handleSubjectChange = this
-            .handleSubjectChange
-            .bind(this);
-
-        this.handleMessageChange = this
-            .handleMessageChange
-            .bind(this);
+        // this.handleEmailChange = this
+        //     .handleEmailChange
+        //     .bind(this);
+        //
+        // this.handleSubjectChange = this
+        //     .handleSubjectChange
+        //     .bind(this);
+        //
+        // this.handleMessageChange = this
+        //     .handleMessageChange
+        //     .bind(this);
     }
 
     private onSendBtnClick
@@ -82,7 +82,7 @@ export class Contact extends Component<ContactProps, ContactState> {
 
     private handleMessageInputOnChange
         = (event: {
-        target: { value: any}}) => {
+        target: { value: any, name: any}}) => {
         const target = event.target;
         let name = target.name;
         let value = target.value;
@@ -110,14 +110,14 @@ export class Contact extends Component<ContactProps, ContactState> {
                             </label>
                             <input
                                 type="email"
-                                className="w-full mt-1 p-2 border-2 border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" value={this.state.email} onChange={this.handleEmailChange}
+                                className="w-full mt-1 p-2 border-2 border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" value={this.state.email} onChange={this.handleMessageInputOnChange}
                             />
                         </div>
                         <div>
                             <label className="block text-gray-700 text-base lg:text-lg">
                                 Your Subject:
                             </label>
-                            <input type="text" className="w-full mt-1 p-2 border-2 border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" value={this.state.subject} onChange={this.handleSubjectChange}
+                            <input type="text" className="w-full mt-1 p-2 border-2 border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" value={this.state.subject} onChange={this.handleMessageInputOnChange}
                             />
                         </div>
                         <div>
@@ -125,7 +125,7 @@ export class Contact extends Component<ContactProps, ContactState> {
                                 Your Message:
                             </label>
                             <textarea
-                                className="w-full mt-1 p-2 border-2 border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" value={this.state.message} onChange={this.handleMessageChange}
+                                className="w-full mt-1 p-2 border-2 border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" value={this.state.message} onChange={this.handleMessageInputOnChange}
                             />
                         </div>
                         <div className="text-center">
