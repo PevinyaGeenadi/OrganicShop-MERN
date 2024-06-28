@@ -26,8 +26,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
 //middleware
-app.use('/', indexRouter);
-app.use('/products', productRouter);
+app.use('/', indexRouter); // http://localhost:4000
+app.use('/products', productRouter); // http://localhost:4000/products
+app.use('/contact', ); // http://localhost:4000/contact
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

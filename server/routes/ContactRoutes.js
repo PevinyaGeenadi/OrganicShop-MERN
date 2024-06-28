@@ -10,5 +10,3 @@ router.post('/submit',(req, res) => {
     res.send("Contact " +
         "details received!");
 });
-
-module.exports = router;
