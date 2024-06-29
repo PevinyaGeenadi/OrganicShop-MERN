@@ -46,5 +46,19 @@ const ProductController = {
             res.status(500).json({error: 'Something Went Wrong!' });
         }
     },
+    deleteProduct: async function (req, res, next) {
+        try {
+            const productId = req.params.id;
+            const result = await Product.deleteOne({id: productId});
+            if (result.deletedCount === 0) {
+                return res.status(404).json({error: 'Product not found!'});
+            }
+            res.status(200).json({message: 'Product deleted successfully!'});
+
+        } catch (err) {
+            console.error(err);
+            res.status(500).json({ error: 'Something Went Wrong!' });
+        }
+    }
 }
 module.exports = ProductController;
