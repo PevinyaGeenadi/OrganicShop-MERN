@@ -9,5 +9,8 @@ router.post('/save',ProductController.saveProduct);
 
 router.get('/:id',ProductController.getProduct);
 
+router.put('/:id',ProductController.updateProduct);
+
+
 
 module.exports = router;

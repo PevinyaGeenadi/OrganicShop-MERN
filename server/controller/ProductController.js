@@ -30,5 +30,21 @@ const ProductController = {
             res.status(500).json({error: 'Something Went Wrong!'});
         }
     },
+    updateProduct: function (req, res, next) {
+        try {
+            const productId = req.params.id;
+            const productData = req.body;
+
+            const updatedProduct
+                = Product.findOneAndUpdate({id: productId}, productData, {new: true});
+            if (!updatedProduct) {
+                return res.status(404).json({error: 'Product not found!'});
+            }
+            res.status(200).json(updatedProduct);
+        } catch (err) {
+            console.error(err);
+            res.status(500).json({error: 'Something Went Wrong!' });
+        }
+    },
 }
 module.exports = ProductController;
